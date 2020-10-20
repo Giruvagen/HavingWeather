@@ -13,6 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.20.0",
     "file-loader": "^6.1.1",
+    "framer-motion": "^2.9.3",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",

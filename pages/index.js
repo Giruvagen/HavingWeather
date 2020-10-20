@@ -4,6 +4,7 @@ import NextDay from '../components/NextDay'
 import CurrentDay from '../components/CurrentDay'
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const background = '../public/_01.jpeg'
@@ -54,7 +55,7 @@ export default function Home() {
         setLon(position.coords.longitude);
         axios
           .get(
-            `https://eu1.locationiq.com/v1/reverse.php?key=${process.env.LIQ_KEY}=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
+            `https://eu1.locationiq.com/v1/reverse.php?key=${process.env.LIQ_KEY}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
           )
           .then((result) => {
             setPlace(result.data.address.suburb);
@@ -97,22 +98,22 @@ export default function Home() {
         style={{ justifyContent: "stretch" }}
       >
         <Nav />
-        <div className="h-12 flex flex-auto">
-          <div className="flex-auto w-8 m-2 shadow-md">
+        <div className="h-12 flex flex-auto justify-self-center">
+          <div className="flex-auto w-8 m-2 shadow-md justify-self-center">
             {place.length > 1 && (
             <>
               <CurrentDay day={todaysWeather} place={place} />
               <button onClick={() => toggleDays()}>View Next 3 Days</button>
             </>
             )}
-        <label className="text-blue-700 text-lg m-3">
+        <label className="text-blue-700 text-lg m-3 justify-self-center">
           Location:{" "}
         </label>
         <input
           onChange={(e) => setLocation(e.target.value)}
           type="text"
           placeholder="Enter Your Location"
-          className="m-3 border rounded border-blue-700 text-center"
+          className="m-3 border rounded border-blue-700 text-center justify-self-center"
           name="location"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -121,13 +122,13 @@ export default function Home() {
           }}
         />
         <button
-          className="rounded m-2 p-3 bg-blue-700 text-teal-400 align-center"
+          className="rounded m-2 p-3 bg-blue-700 text-teal-400 justify-self-center"
           onClick={() => search(location)}
         >
           What is our weather?
         </button>
         <button
-          className="rounded m-2 p-3 bg-blue-700 text-teal-400 align-center"
+          className="rounded m-2 p-3 bg-blue-700 text-teal-400 justify-self-center"
           onClick={() => requestLocationAndSearch()}
         >
           Use My Location
@@ -135,15 +136,18 @@ export default function Home() {
           </div>
           {showNextDays && 
           <>
-            <div className="flex-auto w-8 m-2 shadow-md">
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-300 hover:shadow-lg" animate={{  x: 0 }} initial={{x: -1000}}
+    transition={{ duration: 1 }}>
               <NextDay day={nextDays[0]} place={place}  />
-            </div>
-            <div className="flex-auto w-8 m-2 shadow-md">
+            </motion.div>
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700" animate={{  x: 0 }} initial={{x: -1000}}
+    transition={{ duration: 0.9 }}>
               <NextDay day={nextDays[1]} place={place} />
-          </div>
-            <div className="flex-auto w-8 m-2 shadow-md">
+          </motion.div>
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400" animate={{  x: 0 }} initial={{x: -1000}}
+    transition={{ duration: 0.8 }}>
               <NextDay day={nextDays[2]} place={place} />
-          </div>
+          </motion.div>
           </>
           }
         </div>

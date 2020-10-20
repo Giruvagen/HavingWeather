@@ -5,12 +5,12 @@ export default function NextDay({ day, place }) {
     return (
         <>
         <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`} className="self-center" />
-          <ul className="m-2 p-1 text-blue-700">
+          <ul className="m-2 p-1 text-white">
             <li>
-              We are having {day.weather[0].description} weather in {place.split(",")[0]}
+              We will be having {day.weather[0].description} weather in {place.split(",")[0]}
             </li>
-            <li>Daytime Max Temp: {day.temp.max}C</li>
-            <li>Nightime Min Temp: {day.temp.min}C</li>
+            <li>Daytime Max Temp: {Math.round(day.temp.max - 273.15)}C</li>
+            <li>Nighttime Min Temp: {Math.round(day.temp.min - 273.15)}C</li>
           </ul>
         </>
     )
