@@ -12,7 +12,7 @@ export default function Home() {
   const [lat, setLat] = useState("")
   const [lon, setLon] = useState("")
   const [location, setLocation] = useState("Sunderland")
-  const [todaysWeather, setTodaysWeather] = useState([])
+  const [todaysWeather, setTodaysWeather] = useState()
   const [nextDays, setNextDays] = useState([])
   const [place, setPlace] = useState("")
 
@@ -100,7 +100,7 @@ export default function Home() {
         <Nav />
         <div className="h-12 flex flex-auto justify-self-center">
           <div className="flex-auto w-8 m-2 shadow-md justify-self-center bg-gray-300">
-            {place.length > 1 && (
+            {place.length > 1 && todaysWeather && (
             <>
               <CurrentDay day={todaysWeather} place={place} />
               <button onClick={() => toggleDays()}>View Next 3 Days</button>
