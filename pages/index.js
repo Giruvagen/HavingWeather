@@ -99,7 +99,7 @@ export default function Home() {
       >
         <Nav />
         <div className="h-12 flex flex-auto justify-self-center">
-          <div className="flex-auto w-8 m-2 shadow-md justify-self-center">
+          <div className="flex-auto w-8 m-2 shadow-md justify-self-center bg-gray-300">
             {place.length > 1 && (
             <>
               <CurrentDay day={todaysWeather} place={place} />
@@ -140,11 +140,11 @@ export default function Home() {
     transition={{ duration: 1 }}>
               <NextDay day={nextDays[0]} place={place}  />
             </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700" animate={{  x: 0 }} initial={{x: -1000}}
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700" animate={{  x: 0 }} initial={{x: -1500}}
     transition={{ duration: 0.9 }}>
               <NextDay day={nextDays[1]} place={place} />
           </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400" animate={{  x: 0 }} initial={{x: -1000}}
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400" animate={{  x: 0 }} initial={{x: -2000}}
     transition={{ duration: 0.8 }}>
               <NextDay day={nextDays[2]} place={place} />
           </motion.div>
