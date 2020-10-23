@@ -9,8 +9,8 @@ export default function CurrentDay({ day, place }) {
             <li>
               We are having {day.weather[0].description} weather in {place.split(",")[0]}
             </li>
-            <li>Temp: {day.temp}C</li>
-            <li>Feels Like Temp: {day.feels_like}C</li>
+            <li>Temp: {Math.round(day.temp - 273.15)}C</li>
+            <li>Feels Like Temp: {Math.round(day.feels_like - 273.15)}C</li>
           </ul>
         </>
     )
