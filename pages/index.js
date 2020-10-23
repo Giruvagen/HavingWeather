@@ -76,10 +76,10 @@ export default function Home() {
           .get(
             `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${process.env.OW_KEY}`
           )
-          .then((result) => {
+					.then((result) => {
             setTodaysWeather(result.data.current)
             setNextDays(result.data.daily)
-            setLocation("");
+            setLocation("")
           });
       } catch {}
     } else {
