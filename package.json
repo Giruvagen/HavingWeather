@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -15,6 +16,7 @@
     "file-loader": "^6.1.1",
     "framer-motion": "^2.9.3",
     "next": "9.5.5",
+    "next-on-netlify": "^2.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-fontawesome": "^1.7.1",
