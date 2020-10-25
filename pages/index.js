@@ -136,15 +136,15 @@ export default function Home() {
           </div>
           {showNextDays && 
           <>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-300 hover:shadow-lg" animate={{  x: 0 }} initial={{x: -1000}}
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-300 hover:shadow-lg rounded-md" animate={{  x: 0 }} initial={{x: -1000}}
     transition={{ duration: 1 }}>
               <NextDay day={nextDays[0]} place={place}  />
             </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700" animate={{  x: 0 }} initial={{x: -1500}}
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700 rounded-md" animate={{  x: 0 }} initial={{x: -1500}}
     transition={{ duration: 0.9 }}>
               <NextDay day={nextDays[1]} place={place} />
           </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400" animate={{  x: 0 }} initial={{x: -2000}}
+            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400 rounded-md" animate={{  x: 0 }} initial={{x: -2000}}
     transition={{ duration: 0.8 }}>
               <NextDay day={nextDays[2]} place={place} />
           </motion.div>
