@@ -89,14 +89,11 @@ function Search(props) {
   return (
     <div className=" w-24 flex flex-col justify-center">
       <div className="w-24">
-        <label className="text-blue-700 text-lg m-3">
-          Location:{" "}
-        </label>
         <input
           onChange={(e) => setLocation(e.target.value)}
           type="text"
           placeholder="Enter Your Location"
-          className="m-3 border rounded border-blue-700 text-center"
+          className="m-3 border-b border-blue-700 text-center"
           name="location"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
