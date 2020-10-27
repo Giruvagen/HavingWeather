@@ -1,5 +1,4 @@
 import Nav from '../components/Nav'
-import Search from '../components/Search'
 import NextDay from '../components/NextDay'
 import CurrentDay from '../components/CurrentDay'
 import { useState, useEffect, useRef } from 'react'
@@ -103,9 +102,9 @@ export default function Home() {
             {place.length > 1 && todaysWeather && (
             <>
               <CurrentDay day={todaysWeather} place={place} />
-              <button onClick={() => toggleDays()}>View Next 3 Days</button>
             </>
             )}
+        <div className="p-4 m-4">
         <input
           onChange={(e) => setLocation(e.target.value)}
           type="text"
@@ -128,8 +127,10 @@ export default function Home() {
           className="rounded m-2 p-3 bg-blue-700 text-teal-400 justify-self-center"
           onClick={() => requestLocationAndSearch()}
         >
-          Use My Location
+                Use My Location
         </button>
+        <button onClick={() => toggleDays()} className="m-2 p-3 rounded bg-blue-700 text-teal-400 justify-self-center">View Next 3 Days</button>
+        </div>
           </div>
           {showNextDays && 
           <>
