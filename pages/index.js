@@ -1,5 +1,4 @@
 import Nav from '../components/Nav'
-import Search from '../components/Search'
 import NextDay from '../components/NextDay'
 import CurrentDay from '../components/CurrentDay'
 import { useState, useEffect, useRef } from 'react'
@@ -99,21 +98,18 @@ export default function Home() {
       >
         <Nav />
         <div className="h-12 flex flex-auto justify-self-center">
-          <div className="flex-auto w-8 m-2 shadow-md justify-self-center bg-gray-300">
+          <div className="flex-auto w-8 m-2 justify-self-center bg-gradient-to-b from-gray-500">
             {place.length > 1 && todaysWeather && (
             <>
               <CurrentDay day={todaysWeather} place={place} />
-              <button onClick={() => toggleDays()}>View Next 3 Days</button>
             </>
             )}
-        <label className="text-blue-700 text-lg m-3 justify-self-center">
-          Location:{" "}
-        </label>
+        <div className="p-4 m-4">
         <input
           onChange={(e) => setLocation(e.target.value)}
           type="text"
           placeholder="Enter Your Location"
-          className="m-3 border rounded border-blue-700 text-center justify-self-center"
+          className="m-3 border-b-4 bg-transparent border-blue-700 text-center justify-self-center"
           name="location"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -131,20 +127,22 @@ export default function Home() {
           className="rounded m-2 p-3 bg-blue-700 text-teal-400 justify-self-center"
           onClick={() => requestLocationAndSearch()}
         >
-          Use My Location
+                Use My Location
         </button>
+        <button onClick={() => toggleDays()} className="m-2 p-3 rounded bg-blue-700 text-teal-400 justify-self-center">View Next 3 Days</button>
+        </div>
           </div>
           {showNextDays && 
           <>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-300 hover:shadow-lg rounded-md" animate={{  x: 0 }} initial={{x: -1000}}
+            <motion.div className="flex-auto w-8 m-2 bg-gradient-to-b from-blue-300 to-transparent" animate={{  x: 0 }} initial={{x: -1000}}
     transition={{ duration: 1 }}>
               <NextDay day={nextDays[0]} place={place}  />
             </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-blue-700 rounded-md" animate={{  x: 0 }} initial={{x: -1500}}
+            <motion.div className="flex-auto w-8 m-2 bg-gradient-to-b from-blue-700 to-transparent" animate={{  x: 0 }} initial={{x: -1500}}
     transition={{ duration: 0.9 }}>
               <NextDay day={nextDays[1]} place={place} />
           </motion.div>
-            <motion.div className="flex-auto w-8 m-2 shadow-md bg-teal-400 rounded-md" animate={{  x: 0 }} initial={{x: -2000}}
+            <motion.div className="flex-auto w-8 m-2 bg-gradient-to-b from-teal-400 to-transparent" animate={{  x: 0 }} initial={{x: -2000}}
     transition={{ duration: 0.8 }}>
               <NextDay day={nextDays[2]} place={place} />
           </motion.div>
